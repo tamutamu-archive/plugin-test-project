@@ -1,0 +1,30 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenLocal()
+	}
+	dependencies {
+		classpath 'com.github.tamutamu:gradle-github-plugin:1.0.0-SNAPSHOT'
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'com.github.tamutamu.github'
+
+repositories {
+	jcenter()
+}
+
+
+
+dependencies {
+	compile 'org.slf4j:slf4j-api:1.7.21'
+	testCompile 'junit:junit:4.12'
+}
+
+github {
+	dir "$buildDir/test_clone/"
+	//org "tamutamu-gradle-org"
+	user "tamutamu"
+}
